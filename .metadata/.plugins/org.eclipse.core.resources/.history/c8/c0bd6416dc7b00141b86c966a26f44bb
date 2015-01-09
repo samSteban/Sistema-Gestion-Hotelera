@@ -1,0 +1,91 @@
+package gui;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+public class Reserva extends JDialog {
+
+	private final JPanel contentPanel = new JPanel();
+	private JLabel lblCdigo;
+	private JTextField textField;
+	private JLabel lblEstadoDeReserva;
+	private JTextField textField_1;
+	private JScrollPane scrollPane;
+	private JTextArea textArea;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			Reserva dialog = new Reserva();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public Reserva() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\elias\\Google Drive\\Documentos Cibertec\\Trabajos en Java-Eclipse\\Sistema Gestion Hotelera\\iconoHotel.png"));
+		setTitle("Reserva");
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+		{
+			JComboBox comboBox = new JComboBox();
+			comboBox.setModel(new DefaultComboBoxModel(new String[] {"Ingreso", "Listado", "Anulaci\u00F3n"}));
+			comboBox.setBounds(331, 12, 93, 26);
+			contentPanel.add(comboBox);
+		}
+		
+		lblCdigo = new JLabel("C\u00F3digo :");
+		lblCdigo.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblCdigo.setBounds(10, 17, 46, 14);
+		contentPanel.add(lblCdigo);
+		
+		textField = new JTextField();
+		textField.setEditable(false);
+		textField.setBounds(140, 15, 112, 20);
+		contentPanel.add(textField);
+		textField.setColumns(10);
+		
+		lblEstadoDeReserva = new JLabel("Estado de Reserva :");
+		lblEstadoDeReserva.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblEstadoDeReserva.setBounds(10, 56, 109, 14);
+		contentPanel.add(lblEstadoDeReserva);
+		
+		textField_1 = new JTextField();
+		textField_1.setEditable(false);
+		textField_1.setBounds(140, 54, 112, 20);
+		contentPanel.add(textField_1);
+		textField_1.setColumns(10);
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 91, 414, 160);
+		contentPanel.add(scrollPane);
+		
+		textArea = new JTextArea();
+		textArea.setEditable(false);
+		scrollPane.setViewportView(textArea);
+	}
+
+}

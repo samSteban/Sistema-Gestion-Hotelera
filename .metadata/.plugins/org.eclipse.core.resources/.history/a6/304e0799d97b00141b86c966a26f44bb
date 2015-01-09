@@ -1,0 +1,104 @@
+package gui;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+
+public class Mantenimiento extends JDialog {
+
+	private final JPanel contentPanel = new JPanel();
+	private JLabel lblNewLabel;
+	private JLabel lblCliente;
+	private JLabel lblRecepcionista;
+	private JTextField txtHabitacion;
+	private JTextField txtCliente;
+	private JTextField txtRecepcionista;
+	private JScrollPane scrollPane;
+	private JButton btnProcesar;
+	private JComboBox cboOpciones;
+	private JTextArea textArea;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			Mantenimiento dialog = new Mantenimiento();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public Mantenimiento() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\elias\\Google Drive\\Documentos Cibertec\\Trabajos en Java-Eclipse\\Sistema Gestion Hotelera\\iconoHotel.png"));
+		setTitle("Mantenimiento");
+		setBounds(100, 100, 450, 302);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+		
+		lblNewLabel = new JLabel("Habitaci\u00F3n :");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNewLabel.setBounds(10, 11, 69, 14);
+		contentPanel.add(lblNewLabel);
+		
+		lblCliente = new JLabel("Cliente :");
+		lblCliente.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblCliente.setBounds(10, 42, 46, 14);
+		contentPanel.add(lblCliente);
+		
+		lblRecepcionista = new JLabel("Recepcionista :");
+		lblRecepcionista.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblRecepcionista.setBounds(10, 73, 82, 14);
+		contentPanel.add(lblRecepcionista);
+		
+		txtHabitacion = new JTextField();
+		txtHabitacion.setBounds(124, 9, 118, 20);
+		contentPanel.add(txtHabitacion);
+		txtHabitacion.setColumns(10);
+		
+		txtCliente = new JTextField();
+		txtCliente.setBounds(124, 40, 118, 20);
+		contentPanel.add(txtCliente);
+		txtCliente.setColumns(10);
+		
+		txtRecepcionista = new JTextField();
+		txtRecepcionista.setBounds(124, 71, 118, 20);
+		contentPanel.add(txtRecepcionista);
+		txtRecepcionista.setColumns(10);
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 102, 414, 154);
+		contentPanel.add(scrollPane);
+		
+		textArea = new JTextArea();
+		scrollPane.setViewportView(textArea);
+		
+		btnProcesar = new JButton("Procesar");
+		btnProcesar.setBounds(296, 70, 100, 23);
+		contentPanel.add(btnProcesar);
+		
+		cboOpciones = new JComboBox();
+		cboOpciones.setModel(new DefaultComboBoxModel(new String[] {"Creaci\u00F3n", "Modificaci\u00F3n", "Consulta", "Eliminaci\u00F3n", "Listado"}));
+		cboOpciones.setBounds(296, 9, 100, 20);
+		contentPanel.add(cboOpciones);
+	}
+}

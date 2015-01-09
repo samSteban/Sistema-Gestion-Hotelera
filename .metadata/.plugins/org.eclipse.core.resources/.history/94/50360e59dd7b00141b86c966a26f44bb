@@ -1,0 +1,76 @@
+package gui;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+
+public class ReportesConsultas extends JDialog {
+
+	private final JPanel contentPanel = new JPanel();
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			ReportesConsultas dialog = new ReportesConsultas();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public ReportesConsultas() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\elias\\Google Drive\\Documentos Cibertec\\Trabajos en Java-Eclipse\\Sistema Gestion Hotelera\\iconoHotel.png"));
+		setTitle("Reportes y Consultas");
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+		{
+			JButton btnBuscar = new JButton("Buscar");
+			btnBuscar.setBounds(319, 53, 105, 23);
+			contentPanel.add(btnBuscar);
+		}
+		{
+			JLabel lblRecepcionista = new JLabel("Recepcionista :");
+			lblRecepcionista.setFont(new Font("Tahoma", Font.PLAIN, 12));
+			lblRecepcionista.setBounds(10, 15, 82, 14);
+			contentPanel.add(lblRecepcionista);
+		}
+		{
+			textField = new JTextField();
+			textField.setBounds(121, 12, 114, 20);
+			contentPanel.add(textField);
+			textField.setColumns(10);
+		}
+		{
+			JLabel lblNmeroDeHabitacin = new JLabel("N\u00FAmero de Habitaci\u00F3n :");
+			lblNmeroDeHabitacin.setBounds(10, 43, 46, 14);
+			contentPanel.add(lblNmeroDeHabitacin);
+		}
+		{
+			JComboBox comboBox = new JComboBox();
+			comboBox.setModel(new DefaultComboBoxModel(new String[] {"Hospj. Recepcionista", "Historial Habitaci\u00F3n", "Rango Fechas", "Monto Total Parcial y Consumido"}));
+			comboBox.setBounds(258, 12, 166, 20);
+			contentPanel.add(comboBox);
+		}
+	}
+
+}
